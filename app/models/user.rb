@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :racquets_as_player, source: :racquets, foreign_key: :player_id
+  has_many :racquets_as_customizer, source: :racquets, foreign_key: :customizer_id
+  validates :email, presence: true, confirmation: true
+  validates :password, presence: true, length: { in: 6..20 }
 end
