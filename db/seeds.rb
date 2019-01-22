@@ -8,7 +8,8 @@ racquets =  JSON.parse(serialized_racquets)
 puts "Starting creating racquets"
 racquets['racquets'].each do |racquet|
   print '-'
-  brand = Brand.create(name: racquet['brand'])
+  brand = Brand.new(name: racquet['brand'])
+  brand.valid? && brand.new_record? ? brand.save : brand = Brand.where(name: racquet['brand']).take
   Racquet.create(
     brand: brand,
     trade_name: racquet['model_name'],
