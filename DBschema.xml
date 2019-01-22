@@ -41,7 +41,7 @@
     <type label="Inet CIDR Addr" length="0" sql="CIDR" quote="'"/>
     <type label="Geometry" length="0" sql="GEOMETRY" quote="'"/>
   </group>
-</datatypes><table x="1051" y="346" name="users">
+</datatypes><table x="1102" y="500" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -70,16 +70,14 @@
 <part>id</part>
 </key>
 </table>
-<table x="746" y="240" name="racquets">
+<table x="707" y="315" name="customizations">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="brand" null="1" autoincrement="0">
-<datatype>CHAR</datatype>
-<default>NULL</default></row>
-<row name="model_name" null="1" autoincrement="0">
+<row name="racquet_id" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
-<default>NULL</default></row>
+<default>NULL</default><relation table="racquets" row="id" />
+</row>
 <row name="initial_weight" null="1" autoincrement="0">
 <datatype>FLOAT</datatype>
 <default>NULL</default></row>
@@ -97,15 +95,6 @@
 <default>NULL</default></row>
 <row name="current_swingweight" null="1" autoincrement="0">
 <datatype>FLOAT</datatype>
-<default>NULL</default></row>
-<row name="length" null="1" autoincrement="0">
-<datatype>FLOAT</datatype>
-<default>NULL</default></row>
-<row name="stiffness" null="1" autoincrement="0">
-<datatype>FLOAT</datatype>
-<default>NULL</default></row>
-<row name="string_pattern" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="comment" null="1" autoincrement="0">
 <datatype>TEXT</datatype>
@@ -125,10 +114,14 @@
 <part>id</part>
 </key>
 </table>
-<table x="489" y="307" name="customizations">
+<table x="373" y="260" name="additions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="customization_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="customizations" row="id" />
+</row>
 <row name="mass_added" null="1" autoincrement="0">
 <datatype>FLOAT</datatype>
 <default>NULL</default></row>
@@ -138,13 +131,73 @@
 <row name="location_from_sym_axis" null="1" autoincrement="0">
 <datatype>FLOAT</datatype>
 <default>NULL</default></row>
-<row name="racquet_id" null="1" autoincrement="0">
+<row name="swingweight_added" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="balance_transfer" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="racquets" row="id" />
+<default>NULL</default></row>
+<row name="twistweight_added" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="activated?" null="1" autoincrement="0">
+<datatype>BOOLEAN</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1166" y="97" name="brands">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="925" y="52" name="racquets">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="model_name" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
+<default>NULL</default></row>
+<row name="brand_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="brands" row="id" />
 </row>
+<row name="reference_weight" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="reference_balance" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="reference_swingweight" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="length" null="1" autoincrement="0">
+<datatype>DECIMAL</datatype>
+<default>NULL</default></row>
+<row name="head_size" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="stiffness" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="string_pattern_mains" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="string_pattern_crosses" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="composition" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
 </sql>
-
