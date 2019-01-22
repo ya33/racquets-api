@@ -1,5 +1,6 @@
 class Racquet < ApplicationRecord
   has_many :customizations
+  validates_associated :customizations
   belongs_to :brand
   validates :reference_weight, presence: true, numericality: { greater_than: 200 }
   validates :reference_balance, presence: true, numericality: { greater_than: 20 }
