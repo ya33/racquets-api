@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_110015) do
+ActiveRecord::Schema.define(version: 2019_01_22_161929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_110015) do
 
   create_table "racquets", force: :cascade do |t|
     t.bigint "brand_id"
-    t.string "model_name"
+    t.string "trade_name"
     t.decimal "reference_weight"
     t.decimal "reference_balance"
     t.decimal "reference_swingweight"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_110015) do
     t.integer "string_pattern_mains"
     t.integer "string_pattern_crosses"
     t.integer "head_size_cm2"
-    t.integer "head_size_sq2"
+    t.integer "head_size_in2"
     t.string "composition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
