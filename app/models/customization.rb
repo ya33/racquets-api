@@ -6,4 +6,5 @@ class Customization < ApplicationRecord
   validates :initial_weight, presence: true, numericality: { greater_than: 200 }
   validates :initial_balance, presence: true, numericality: { greater_than: 20 }
   validates :initial_swingweight, presence: true, numericality: { greater_than: 200 }
+  validates :code, presence: true
 end
