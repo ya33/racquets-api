@@ -1,10 +1,10 @@
 class Api::V1::RacquetsController < Api::V1::BaseController
   def index
-    @racquets = Racquet.all
+    @racquets = policy_scope(Racquet)
   end
 
   def show
     @racquet = Racquet.find(params[:id])
-    # authorize @racquet
+    authorize @racquet
   end
 end
