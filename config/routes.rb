@@ -6,4 +6,14 @@ Rails.application.routes.draw do
       resources :racquets, only: [ :index, :show ]
     end
   end
+
+  resources :racquets, only: [:index]
+
+  namespace :customizer do
+    resources :customizations, only: [:index]
+  end
+
+  namespace :player do
+    resources :customizations, only: [:index]
+  end
 end

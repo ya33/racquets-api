@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Pimp your tennis racquet like profesionnal players</h1>
+<h4>On this web-app site, you could find tools to customize your racquet easily.</h4>
+<div class="content">
+  <ul class='list'>
+    <li class='list-item'>Racquets database : Find your raquet model among a large racquets database</li>
+    <li class='list-item'>Mass/Balance tool : Calculate the exact mass and balance of your own racquets</li>
+    <li class='list-item'>Customizator : Customize racquets calculating in real-time the modified parameters (mass, balance, swingweight)</li>
+  </ul>
+  <div class="register">
+    <p>Benefits to register :</p>
+    <ul>
+      <li>Save all your customizations</li>
+      <li>If you are a profesionnal, your customers could leave their comments on each customization</li>
+    </ul>
+  </div>
+  <div class="api">
+    <p>API database is here</p>
+  </div>
+  <div class="sign">
+    <%= render 'devise/sessions/new' %>
+  </div>
+</div>
