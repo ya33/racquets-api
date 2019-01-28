@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+
+.wrapper {
+  background-color: #f9f8eb;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 50px;
@@ -15,12 +20,12 @@ h1 {
 
   .tools-item {
     display: flex;
-    color: red;
-    background-color: lightgrey;
-    border: lightgrey solid 2px;
+    color: #665c84;
+    background-color: #ffba5a;
+    border: #ff7657 solid 2px;
     padding: 5px;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
+    box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 1px;
     transition: transform 200ms;
   }
 
@@ -28,8 +33,8 @@ h1 {
     transition: transform 200ms;
     transform: scale(1.1);
     text-decoration: none;
-    color: grey;
-    background: red;
+    color: #ff7657;
+    background: #ffba5a;
     font-weight: bolder;
   }
 }

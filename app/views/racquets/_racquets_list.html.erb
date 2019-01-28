@@ -1,24 +1,32 @@
-<h1>Racquets list</h1>
-
-<%= simple_form_for(:search, url: racquets_path, method: :get, remote:true) do |f| %>
-  <%= f.input :brand, label: 'Brand', placeholder: "brand", input_html: {onkeyup: 'Rails.fire(this.form,"submit")'} %>
-  <%= f.input :keyword, label: 'Keyword', placeholder: "keyword", input_html: {onkeyup: 'Rails.fire(this.form,"submit")'} %>
-  <div class="weight-slider">
-    <%= f.input :weight, as: :range, label: "Minimum weight" %>
-    <%= f.input :weight, as: :range, label: "Maximum weight" %>
-  </div>
-  <%= f.input :balance, as: :range, label: 'balance' %>
-  <%= f.input :swingweight, as: :range, label: 'swingweight' %>
-  <%= f.submit 'Filtrer', id: 'submit_button', class: 'd-none' %>
-<% end %>
-
-
-
-<div class="racquets-grid">
-  <% racquets.each do |racquet| %>
-  <div class="racquet-item">
-    <h4><%= racquet.trade_name %></h4>
-  </div>
+<div class="filters">
+  <%= simple_form_for(:search, url: racquets_path, method: :get, remote:true) do |f| %>
+    <div class="brand">
+      <%= f.input :brand, label: 'Brand', placeholder: "brand", input_html: {onkeyup: 'Rails.fire(this.form,"submit")'} %>
+    </div>
+    <div class="keyword">
+      <%= f.input :keyword, label: 'Keyword', placeholder: "keyword", input_html: {onkeyup: 'Rails.fire(this.form,"submit")'} %>
+    </div>
+    <div class="weight slider">
+      <%= f.input :weight, as: :range, label: "Minimum weight" %>
+      <%= f.input :weight, as: :range, label: "Maximum weight" %>
+    </div>
+    <div class="balance slider">
+      <%= f.input :balance, as: :range, label: 'Minimum balance' %>
+      <%= f.input :balance, as: :range, label: 'Maximum balance' %>
+    </div>
+    <div class="swingweight slider">
+      <%= f.input :swingweight, as: :range, label: 'Minimum swingweight' %>
+      <%= f.input :swingweight, as: :range, label: 'Maximum swingweight' %>
+    </div>
+    <%= f.submit 'Filter', id: 'submit_button', class: 'd-none' %>
   <% end %>
-
 </div>
+
+<div class="list-container">
+  <% racquets.each do |racquet| %>
+    <div class="racquet-box">
+      <span><%=racquet.trade_name%></span>
+    </div>
+  <% end %>
+</div>
+

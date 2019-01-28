@@ -1,27 +1,29 @@
-<div class="container">
-  <h1>Pimp your tennis racquet like profesional players</h1>
-  <div class="content">
-    <div class="tools-explainations">
-      <h4>Here, you could find tools to customize your racquet easily.</h4>
-    </div>
-    <div class='tools'>
-      <%= link_to  "Racquets database", racquets_path, id: 'database', class:'tools-item'%>
-      <%= link_to  "Mass/Balance tool", racquets_path, id: 'me-tool', class:'tools-item'%>
-      <%= link_to  "Customizator", racquets_path, id: 'customizator', class:'tools-item'%>
-    </div>
-    <div class="register">
-      <h4>Why it's better to register ?</h4>
-      <ul>
-        <li>Save all your customizations</li>
-        <li>Players could leave their comments on each customization</li>
-      </ul>
-      <div class="btn btn-primary">Sign Up</div>
-    </div>
-    <div class="api">
-      <p>API database is here</p>
-    </div>
-    <div class="sign">
-      <%#= render 'devise/sessions/new' %>
+<div class="wrapper">
+  <div class="container">
+    <h1>Pimp your tennis racquet like profesional players</h1>
+    <div class="content">
+      <div class="tools-explainations">
+        <h4>Here, you could find tools to customize your racquet easily.</h4>
+      </div>
+      <div class='tools'>
+        <%= link_to  "Racquets database", racquets_path, id: 'database', class:'tools-item'%>
+        <%= link_to  "Mass/Balance tool", racquets_path, id: 'me-tool', class:'tools-item'%>
+        <%= link_to  "Customizator", racquets_path, id: 'customizator', class:'tools-item'%>
+      </div>
+      <div class="register">
+        <h4>Why it's better to register ?</h4>
+        <ul>
+          <li>Save all your customizations</li>
+          <li>Players could leave their comments on each customization</li>
+        </ul>
+        <div class="btn btn-primary">Sign Up</div>
+      </div>
+      <div class="api">
+        <p>API database is here</p>
+      </div>
+      <div class="sign">
+        <%#= render 'devise/sessions/new' %>
+      </div>
     </div>
   </div>
 </div>

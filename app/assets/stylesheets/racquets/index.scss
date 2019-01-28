@@ -1,0 +1,28 @@
+@import "racquets_list";
+@import "balance_tool";
+@import "customizator";
+
+.racquets-container {
+  display: flex;
+  margin: 0px 48px;
+  padding: 0px 16px;
+  flex-direction: column;
+
+}
+
+#racquets-list {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.racquets-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px;
+  padding: 0px 240px;
+}
+
+.h80 {
+  height: 80vh;
+}
