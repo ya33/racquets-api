@@ -7,7 +7,7 @@
   margin: 0px 48px;
   padding: 0px 16px;
   flex-direction: column;
-
+  position: relative;
 }
 
 #racquets-list {
@@ -21,6 +21,12 @@
   justify-content: space-between;
   margin: 16px;
   padding: 0px 240px;
+  // position: absolute;
+  // position: sticky!important;
+  .racquet-tab a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .h80 {

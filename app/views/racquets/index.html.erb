@@ -1,8 +1,14 @@
 <div class="racquets-container">
   <div class="racquets-tabs">
-    <%= link_to "Racquets", '#racquets-list' %>
-    <%= link_to "Balance tool", '#balance-tool' %>
-    <%= link_to "Customization", '#customizator' %>
+    <div class="racquet-tab active">
+      <%= link_to "Racquets", '#racquets-list' %>
+    </div>
+    <div class="racquet-tab">
+      <%= link_to "Balance tool", '#balance-tool' %>
+    </div>
+    <div class="racquet-tab">
+      <%= link_to "Customization", '#customizator' %>
+    </div>
   </div>
   <div id="racquets-list" class='h80'>
     <%= render 'racquets_list', racquets: @racquets %>
