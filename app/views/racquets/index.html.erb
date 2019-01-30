@@ -1,0 +1,24 @@
+<div class="racquets-container">
+  <div class="racquets-tabs">
+    <div class="racquet-tab active">
+      <%= link_to "Racquets", '#racquets-list' %>
+    </div>
+    <div class="racquet-tab">
+      <%= link_to "Balance tool", '#balance-tool' %>
+    </div>
+    <div class="racquet-tab">
+      <%= link_to "Customization", '#customizator' %>
+    </div>
+  </div>
+  <div id="racquets-list" class='h80'>
+    <%= render 'racquets_list', racquets: @racquets %>
+  </div>
+  <div id="balance-tool" class='h80'>
+    <%= render 'balance_tool', racquets: @racquets %>
+  </div>
+  <div id="customizator" class='h80'>
+    <%= render 'customizator', racquets: @racquets %>
+  </div>
+</div>
+
+

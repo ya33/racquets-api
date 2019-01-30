@@ -13,6 +13,20 @@
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  transition: transform 500ms;
+}
+
+.navbar-wagon-brand img:hover {
+  animation: turn 1s;
+  transition: transform 500ms;
+}
+
+@keyframes turn {
+    0% { transform: rotate(  0deg) scale(1.2); }
+   // 25% { transform: rotate( 90deg) scale(1.2); }
+   // 50% { transform: rotate(180deg) scale(1.5); }
+   // 75% { transform: rotate(270deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1.0); }
 }
 
 /* User Avatar */
