@@ -1,34 +1,13 @@
 @import "racquets_list";
-@import "balance_tool";
-@import "customizator";
+@import "filters";
 
-.racquets-container {
+#racquets {
+  // background-color: red;
   display: flex;
-  margin: 0px 48px;
-  padding: 0px 16px;
+  margin: 24px;
   flex-direction: column;
-  position: relative;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px;
 }
 
-#racquets-list {
-  display: flex;
-  justify-content: space-between;
-
-}
-
-.racquets-tabs {
-  display: flex;
-  justify-content: space-between;
-  margin: 16px;
-  padding: 0px 240px;
-  // position: absolute;
-  // position: sticky!important;
-  .racquet-tab a {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-.h80 {
-  height: 80vh;
-}

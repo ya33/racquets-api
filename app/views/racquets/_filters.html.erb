@@ -1,0 +1,5 @@
+<div class="filters">
+  <%= simple_form_for(:search, url: racquets_path, method: :get, remote:true) do |f| %>
+    <%= f.input :racquet_name, type:"text", label:'search', placeholder:"keywords"%>
+  <% end %>
+</div>

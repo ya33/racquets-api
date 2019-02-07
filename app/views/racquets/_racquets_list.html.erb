@@ -1,32 +1,5 @@
-<div class="filters">
-  <%= simple_form_for(:search, url: racquets_path, method: :get, remote:true) do |f| %>
-    <div class="brand">
-      <%= f.input :brand, label: 'Brand', placeholder: "brand", input_html: {onkeyup: 'Rails.fire(this.form,"submit")'} %>
-    </div>
-    <div class="keyword">
-      <%= f.input :keyword, label: 'Keyword', placeholder: "keyword", input_html: {onkeyup: 'Rails.fire(this.form,"submit")'} %>
-    </div>
-    <div class="weight slider">
-      <%= f.input :weight, as: :range, label: "Minimum weight" %>
-      <%= f.input :weight, as: :range, label: "Maximum weight" %>
-    </div>
-    <div class="balance slider">
-      <%= f.input :balance, as: :range, label: 'Minimum balance' %>
-      <%= f.input :balance, as: :range, label: 'Maximum balance' %>
-    </div>
-    <div class="swingweight slider">
-      <%= f.input :swingweight, as: :range, label: 'Minimum swingweight' %>
-      <%= f.input :swingweight, as: :range, label: 'Maximum swingweight' %>
-    </div>
-    <%= f.submit 'Filter', id: 'submit_button', class: 'd-none' %>
-  <% end %>
-</div>
-
-<div class="list-container">
+<div class="racquets-list">
   <% racquets.each do |racquet| %>
-    <div class="racquet-box">
-      <span><%=racquet.trade_name%></span>
-    </div>
+    <%= render 'racquet', racquet: racquet %>
   <% end %>
 </div>
-

@@ -1,0 +1,19 @@
+.racquets {
+  display: flex;
+  background-color: red;
+
+  .filters {
+    display: flex;
+    background-color: green;
+  }
+
+  .results {
+    display: flex;
+    flex-basis: 60%;
+    background-color: blue;
+
+    .racquet {
+
+    }
+  }
+}
