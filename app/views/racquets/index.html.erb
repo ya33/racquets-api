@@ -1,15 +1,22 @@
-<%#= react_component("Racquets", {racquets: @racquets}) %>
+<div id="racquets">
+  <%= react_component('RacquetsApp') %>
+</div>
 
-<div id="racquets" class='container'>
+<!-- <div id="racquets">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3">
-        <%= render 'filters' %>
+      <div class="col-md-2">
+        <%#= render 'racquets_filters', search: @search %>
+        <%#= react_component('racquets/racquets_filters') %>
       </div>
-      <div class="col-md-6">
-        <%= render 'racquets_list', racquets: @racquets %>
+      <div class="col-md-8">
+        <%#= render 'racquets_list', racquets: @racquets %>
+        <%#= react_component('racquets/racquets_list') %>
       </div>
-      <div class="col-md-3">
-        <%= react_component('racquets') %>
+      <div class="col-md-2">
+        <%#= render 'racquet_details', racquet: @racquet %>
+        <%#= react_component('racquets/racquet_details', racquetSpecs:{}) %>
       </div>
     </div>
-</div>
+  </div>
+</div> -->

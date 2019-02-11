@@ -3,5 +3,7 @@ class RacquetsController < ApplicationController
 
   def index
     @racquets = Racquet.all
+    @racquet = Racquet.new
+    # @search = { racquet_name: '' }
   end
 end

@@ -1,4 +1,4 @@
-class Api::V1::Customizations::RacquetsController < Api::V1::BaseController
+class Api::V1::CustomizationsController < Api::V1::BaseController
   def index
     @customizations = policy_scope(Customization)
   end
