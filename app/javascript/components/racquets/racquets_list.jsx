@@ -12,7 +12,7 @@ export default class RacquetsList extends React.Component {
 
     return (
       <React.Fragment>
-        <h1>RacquetsList</h1>
+        <h3>Tennis racquets</h3>
         <div className="racquets-list">
           {racquetsList}
         </div>

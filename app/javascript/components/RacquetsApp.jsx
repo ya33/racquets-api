@@ -15,10 +15,22 @@ export default class RacquetsApp extends React.Component {
         keyword: '',
         minWeight: 1,
         maxWeight: 100,
+        minBalance: 1,
+        maxBalance: 100,
+        minSwingweight: 1,
+        maxSwingweight: 100,
         weightValues: {
           min: 5,
           max: 95
-        }
+        },
+        balanceValues: {
+          min: 5,
+          max: 95
+        },
+        swingweightValues: {
+          min: 5,
+          max: 95
+        },
       }
     };
     this.handleKeyUp = this.handleKeyUp.bind(this);
@@ -81,15 +93,15 @@ export default class RacquetsApp extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className='container-fluid'>
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-md-2 racquet-filters" >
+            <div className="col-md-2 racquets-filters" >
               <RacquetsFilters filters={this.state.filters} onKeyUp={this.handleKeyUp} onChange={this.handleChange} />
             </div>
-            <div className="col-md-8" >
+            <div className="col-md-8 racquets-selection" >
               <RacquetsList racquets={this.state.racquets} onClick={(racquetId) => this.handleClick(racquetId)} />
             </div>
-            <div className="col-md-2">
+            <div className="col-md-2 racquet-details">
               <RacquetDetails specs={this.state.details} />
             </div>
           </div>

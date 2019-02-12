@@ -1,13 +1,14 @@
-@import "racquets_list";
-@import "filters";
+@import "racquets";
 
-#racquets {
-  // background-color: red;
-  // display: flex;
-  margin: 24px;
-  // flex-direction: column;
-  border: 2px solid lightgrey;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px;
+
+.view {
+  background-color: $dark-blue;
+  color: white;
+  border: 0.25rem solid $dark-orange;
+  border-radius: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  height: calc(100vh - 7rem);;
 }
 

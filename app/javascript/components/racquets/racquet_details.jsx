@@ -5,17 +5,20 @@ export default class RacquetDetails extends React.Component {
 
   render () {
     const details = this.props.specs;
-
+    let specs;
+    if(details.trade_name != undefined){
+      specs =  <div>
+                <p className='trade_name'>{details.trade_name} </p>
+                <p>Weight : {details.reference_weight} g</p>
+                <p>Balance : {details.reference_balance} cm</p>
+                <p>Swingweight : {details.reference_swingweight} kg.cm²</p>
+                <p>Composition : {details.composition}</p>
+              </div>
+    }
     return (
       <React.Fragment>
-        <div className="racquet-details">
-          <h4>Racquet specifications</h4>
-          <h4>Name : {details.trade_name} </h4>
-          <p>Weight : {details.reference_weight}</p>
-          <p>Balance : {details.reference_balance}</p>
-          <p>Swingweight : {details.reference_swingweight}</p>
-          <p>Composition : {details.composition}</p>
-        </div>
+        <h3>Specifications</h3>
+        {specs}
       </React.Fragment>
     );
   }
