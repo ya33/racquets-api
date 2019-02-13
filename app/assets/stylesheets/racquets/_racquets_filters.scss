@@ -1,0 +1,54 @@
+.racquets-filters {
+  border-right: 0.05rem solid white;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    // text-align: center;
+    margin-bottom: 1rem;
+    color: $dark-orange;
+  }
+  h6 {
+    color: $light-yellow;
+  }
+  .keywords {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 95%;
+    border-radius: 0.25rem;
+    border: 0.05rem solid $light-yellow;
+  }
+
+  .double-range{
+    margin-bottom: 1rem;
+    padding-bottom:1rem;
+    .double-input{
+      display: flex;
+      position: relative;
+
+      .min-input{
+        position: realtive;
+        width: 80%;
+        z-index: 1;
+      }
+      .max-input{
+        position: absolute;
+        width: 80%;
+        right: 1rem;
+        z-index: 1;
+      }
+    }
+    .values{
+      display: flex;
+      position: relative;
+      .min-value{
+        position: relative;
+        left: 0.01rem;
+      }
+      .max-value{
+        position: absolute;
+        right: 0.01rem;
+      }
+    }
+  }
+}

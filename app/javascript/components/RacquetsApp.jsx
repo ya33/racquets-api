@@ -12,28 +12,29 @@ export default class RacquetsApp extends React.Component {
       racquets:[],
       details: {},
       filters: {
-        keyword: '',
-        minWeight: 1,
-        maxWeight: 100,
-        minBalance: 1,
-        maxBalance: 100,
-        minSwingweight: 1,
-        maxSwingweight: 100,
-        weightValues: {
-          min: 5,
-          max: 95
+        keywords: '',
+        minWeight: '',
+        maxWeight: '',
+        minBalance: '',
+        maxBalance: '',
+        minSwingweight: '',
+        maxSwingweight: '',
+      },
+      intervals: {
+        weightInterval: {
+          min: '',
+          max: ''
         },
-        balanceValues: {
-          min: 5,
-          max: 95
+        balanceInterval: {
+          min: '',
+          max: ''
         },
-        swingweightValues: {
-          min: 5,
-          max: 95
+        swingweightInterval: {
+          min: '',
+          max: ''
         },
-      }
+      },
     };
-    this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -47,47 +48,81 @@ export default class RacquetsApp extends React.Component {
       });
   }
 
-  handleKeyUp(event) {
-    const keyword = event.target.value;
-    this.setState({
-      filters: {
-        keyword: keyword,
-      }
-    });
+  handleChange(key, val='') {
+
+    const keywords = (key === 'keywords') ? event.target.value : this.state.filters.keywords;
+    const minWeight = (key === 'weight' && val === 'min') ? event.target.value : this.state.filters.minWeight;
+    const maxWeight = (key === 'weight' && val === 'max') ? event.target.value : this.state.filters.maxWeight;
+    const minBalance = (key === 'balance' && val === 'min') ? event.target.value : this.state.filters.minBalance;
+    const maxBalance = (key === 'balance' && val === 'max') ? event.target.value : this.state.filters.maxBalance;
+    const minSwingweight = (key === 'swingweight' && val === 'min') ? event.target.value : this.state.filters.minSwingweight;
+    const maxSwingweight = (key === 'swingweight' && val === 'max') ? event.target.value : this.state.filters.maxSwingweight;
+
     const results = [];
     this.state.allRacquets.forEach((racquet) => {
       let racquetName = racquet.trade_name.toUpperCase()
-      if(racquetName.includes(keyword.toUpperCase()) === true) {
+      const isInResults = ((racquetName.includes(keywords.toUpperCase()))
+                            && (minWeight <= racquet.reference_weight) && (racquet.reference_weight <= maxWeight)
+                            && (minBalance <= racquet.reference_balance) && (racquet.reference_balance <= maxBalance)
+                            && (minSwingweight <= racquet.reference_swingweight) && (racquet.reference_swingweight <= maxSwingweight)
+                          )
+      if(isInResults) {
         results.push(racquet);
       }
     });
+
     this.setState({
-      racquets: results
+      racquets: results,
+      filters: {
+        keywords: keywords,
+        minWeight: minWeight,
+        maxWeight: maxWeight,
+        minBalance: minBalance,
+        maxBalance: maxBalance,
+        minSwingweight: minSwingweight,
+        maxSwingweight: maxSwingweight,
+      }
     });
   }
 
-  handleChange(input) {
-    const min = (input === 'min')
-    if(min) {
-      this.setState({
-        filters: {
-           weightValues: {
-             min: event.target.value,
-             max: this.state.filters.weightValues.max
-           }
-        }
-      });
-    } else {
-      this.setState({
-        filters: {
-          weightValues: {
-            min: this.state.filters.weightValues.min,
-            max: event.target.value
-        }
-        }
+  setInitialState(data) {
+    const weight = data.map(d => Number(d.reference_weight)).sort((a,b) => {
+      return a - b
+    });
+    const balance = data.map(d => Number(d.reference_balance)).sort((a,b) => {
+      return a - b
+    });
+    const swingweight = data.map(d => Number(d.reference_swingweight)).sort((a,b) => {
+      return a - b
+    });
 
-      })
-    }
+    this.setState({
+      racquets: data,
+      allRacquets: data,
+      intervals: {
+        weightInterval: {
+          min: weight[0],
+          max: weight[weight.length - 1]
+          },
+        balanceInterval: {
+          min: balance[0],
+          max: balance[balance.length - 1]
+        },
+        swingweightInterval: {
+          min: swingweight[0],
+          max: swingweight[swingweight.length - 1]
+        },
+      },
+      filters: {
+        keywords: '',
+        minWeight: weight[0],
+        maxWeight: weight[weight.length - 1],
+        minBalance: balance[0],
+        maxBalance: balance[balance.length - 1],
+        minSwingweight: swingweight[0],
+        maxSwingweight: swingweight[swingweight.length - 1],
+      }
+    });
   }
 
   render() {
@@ -96,7 +131,7 @@ export default class RacquetsApp extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-2 racquets-filters" >
-              <RacquetsFilters filters={this.state.filters} onKeyUp={this.handleKeyUp} onChange={this.handleChange} />
+              <RacquetsFilters filters={this.state.filters} intervals={this.state.intervals} onChange={(k,v) => this.handleChange(k,v)} />
             </div>
             <div className="col-md-8 racquets-selection" >
               <RacquetsList racquets={this.state.racquets} onClick={(racquetId) => this.handleClick(racquetId)} />
@@ -114,12 +149,13 @@ export default class RacquetsApp extends React.Component {
     fetch("http://localhost:3000/api/v1/racquets")
       .then(response => response.json())
       .then((data) => {
-        this.setState({
-          racquets: data,
-          allRacquets: data
-        })
+        this.setInitialState(data)
       });
   }
 }
 
 RacquetsApp.propTypes = {};
+
+const keywordFilter = (keyword, database) => {
+
+}

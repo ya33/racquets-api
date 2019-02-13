@@ -5,34 +5,38 @@ import DoubleRange from "./double_range";
 export default class RacquetsFilters extends React.Component {
 
   render () {
+
     return (
       <React.Fragment>
         <h3>Filters</h3>
         <h6>Search :</h6>
-        <input className="keywords" type="text" label='search' placeholder="keywords" defaultValue={this.props.filters.keyword} onKeyUp={this.props.onKeyUp}/>
-        <h6>Weight :</h6>
+        <input name='keywords' className="keywords" type="text"
+          label='search' placeholder="keywords" defaultValue={this.props.filters.keywords}
+          onChange={(name,arg) => this.props.onChange('keywords')}
+        />
+        <h6>Weight : (g)</h6>
         <DoubleRange
-          key='Weight'
-          maxValue={this.props.filters.maxWeight}
+          name='weight'
           minValue={this.props.filters.minWeight}
-          value={this.props.filters.weightValues}
-          onChange={(input) => this.props.onChange(input)}
+          maxValue={this.props.filters.maxWeight}
+          interval={this.props.intervals.weightInterval}
+          onChange={(name,arg) => this.props.onChange(name,arg)}
         />
-        <h6>Balance :</h6>
+        <h6>Balance : (cm)</h6>
         <DoubleRange
-          key='Balance'
-          maxValue={this.props.filters.maxBalance}
+          name='balance'
           minValue={this.props.filters.minBalance}
-          value={this.props.filters.balanceValues}
-          onChange={(input) => this.props.onChange(input)}
+          maxValue={this.props.filters.maxBalance}
+          interval={this.props.intervals.balanceInterval}
+          onChange={(name,arg) => this.props.onChange(name,arg)}
         />
-        <h6>Swingweight :</h6>
+        <h6>Swingweight : (kg.cm²)</h6>
         <DoubleRange
-          key='Swingweight'
-          maxValue={this.props.filters.maxSwingweight}
+          name='swingweight'
           minValue={this.props.filters.minSwingweight}
-          value={this.props.filters.swingweightValues}
-          onChange={(input) => this.props.onChange(input)}
+          maxValue={this.props.filters.maxSwingweight}
+          interval={this.props.intervals.swingweightInterval}
+          onChange={(name,arg) => this.props.onChange(name,arg)}
         />
       </React.Fragment>
     );
