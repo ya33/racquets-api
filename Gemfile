@@ -10,13 +10,17 @@ gem 'rails', '5.2.0'
 gem 'redis'
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3'
+# gem 'bootstrap-sass', '~> 3.4.0'
+gem 'bootstrap', '~> 4'
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'font-awesome-sass', '~> 5.5.0'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'pundit'
+gem 'react-rails'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

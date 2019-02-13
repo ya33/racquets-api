@@ -11,22 +11,26 @@ h1 {
 
 .tools-explainations {
   text-align: center;
+  transition-delay: 200ms;
 }
 
 .tools {
   display: flex;
   margin: 25px;
   justify-content: space-around;
+  color: #665c84;
 
   .tools-item {
     display: flex;
-    color: #665c84;
-    background-color: #ffba5a;
+    // background-color: #ffba5a;
+    margin: 16px;
     border: #ff7657 solid 2px;
-    padding: 5px;
-    border-radius: 4px;
+    padding: 16px;
+    border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 1px;
     transition: transform 200ms;
+    cursor: pointer;
+    text-decoration: none;
   }
 
   .tools-item:hover {
@@ -34,8 +38,8 @@ h1 {
     transform: scale(1.1);
     text-decoration: none;
     color: #ff7657;
-    background: #ffba5a;
-    font-weight: bolder;
+    // background: #ffba5a;
+    // font-weight: bolder;
   }
 }
 

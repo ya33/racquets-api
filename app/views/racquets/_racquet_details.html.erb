@@ -1,0 +1,11 @@
+<div class="racquet-details">
+  <h4>Racquet specifications</h2>
+  <% unless racquet.trade_name != "" %>
+    <h4><%= racquet.trade_name %></h4>
+    <p>Weight : <%= racquet.reference_weight %></p>
+    <p>Balance : <%= racquet.reference_balance %></p>
+    <p>Swingweight : <%= racquet.reference_swingweight %></p>
+    <p>Composition : <%= racquet.composition %></p>
+  <% end %>
+</div>
+
