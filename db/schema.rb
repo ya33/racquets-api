@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_161929) do
+ActiveRecord::Schema.define(version: 2019_02_14_125718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,10 @@ ActiveRecord::Schema.define(version: 2019_01_22_161929) do
     t.decimal "mass_added"
     t.decimal "location_from_bottom"
     t.string "location_from_sym_axis"
-    t.decimal "swingweight_added"
-    t.decimal "balance_transfer"
     t.bigint "customization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "twistweight_added"
-    t.boolean "activated?"
+    t.boolean "status"
     t.index ["customization_id"], name: "index_additions_on_customization_id"
   end
 
