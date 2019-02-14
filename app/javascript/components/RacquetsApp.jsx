@@ -130,10 +130,15 @@ export default class RacquetsApp extends React.Component {
       <React.Fragment>
         <div className="container-fluid">
           <div className="row-t">
-
+            <div className="col-xs-4 col-md-2">
               <RacquetsFilters filters={this.state.filters} intervals={this.state.intervals} onChange={(k,v) => this.handleChange(k,v)} />
+            </div>
+            <div className="col-xs-4 col-md-8">
               <RacquetsList racquets={this.state.racquets} onClick={(racquetId) => this.handleClick(racquetId)} />
+            </div>
+            <div className="col-xs-4 col-md-2">
               <RacquetDetails specs={this.state.details} />
+            </div>
           </div>
         </div>
       </React.Fragment>
@@ -144,7 +149,7 @@ export default class RacquetsApp extends React.Component {
     fetch("http://localhost:3000/api/v1/racquets")
       .then(response => response.json())
       .then((data) => {
-        this.setInitialState(data.racquets)
+        this.setInitialState(data.racquets.sort((a,b) => a - b))
       });
   }
 }
