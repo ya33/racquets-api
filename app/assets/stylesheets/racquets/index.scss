@@ -10,6 +10,9 @@
   margin: 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   padding: 0.5rem;
-  height: calc(100vh - 7rem);;
+  // height: calc(100vh - 7rem);;
 }
 
+.row-t{
+  display: flex;
+}

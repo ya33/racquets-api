@@ -12,9 +12,11 @@ export default class RacquetsList extends React.Component {
 
     return (
       <React.Fragment>
-        <h3>Tennis racquets</h3>
-        <div className="racquets-list">
-          {racquetsList}
+        <div className="racquets-selection" >
+          <h3>Tennis racquets</h3>
+          <div className="racquets-list">
+            {racquetsList}
+          </div>
         </div>
       </React.Fragment>
     );

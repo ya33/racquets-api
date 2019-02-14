@@ -1,4 +1,11 @@
 .racquet-details{
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh;
+  padding: 0 0.2rem;
+  margin : 0.1rem 0.5rem;
+  border-left: 0.05rem solid $light-yellow;
+  padding-left: 1rem;
   h3{
     color: $dark-orange;
     margin-left: 0.05rem;
@@ -7,7 +14,4 @@
   .trade_name{
     color: $light-yellow;
   }
-
-  padding: 0 1.5rem;
-  border-left: 0.05rem solid white;
 }

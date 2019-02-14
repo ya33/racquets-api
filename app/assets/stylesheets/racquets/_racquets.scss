@@ -11,8 +11,10 @@
     padding: 0 0.5rem;
     align-content: flex-start;
     background-color: transparent;
-    height: 70vh;
-    overflow-y: scroll;
+    // border-left: 0.05rem solid $light-yellow;
+    // border-right: 0.05rem solid $light-yellow;
+    // height: 70vh;
+    // overflow-y: scroll;
 
     .racquet {
       //flex-basis: calc(50% - 20px);

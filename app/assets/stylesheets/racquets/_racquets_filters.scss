@@ -1,6 +1,9 @@
 .racquets-filters {
-  border-right: 0.05rem solid white;
-  padding: 0 0.5rem;
+  position: sticky !important;
+  top: 0 !important;
+  height: 100vh;
+  border-right: 0.05rem solid $light-yellow;
+  padding-right: 2rem;
   display: flex;
   flex-direction: column;
   h3 {
@@ -10,6 +13,7 @@
   }
   h6 {
     color: $light-yellow;
+    margin-bottom: 1rem;
   }
   .keywords {
     padding: 0.5rem;
@@ -25,17 +29,19 @@
     .double-input{
       display: flex;
       position: relative;
+      width: 90%;
 
       .min-input{
         position: realtive;
-        width: 80%;
         z-index: 1;
       }
       .max-input{
         position: absolute;
-        width: 80%;
-        right: 1rem;
+        // width: 90%;
+        right: 0.05rem;
         z-index: 1;
+        background:transparent;
+        height:0;
       }
     }
     .values{
