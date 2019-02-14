@@ -149,7 +149,7 @@ export default class RacquetsApp extends React.Component {
     fetch("http://localhost:3000/api/v1/racquets")
       .then(response => response.json())
       .then((data) => {
-        this.setInitialState(data)
+        this.setInitialState(data.racquets)
       });
   }
 }
