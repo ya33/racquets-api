@@ -5,14 +5,11 @@
 .view {
   background-color: $dark-blue;
   color: white;
-  border: 0.25rem solid $dark-orange;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   margin: 1rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  padding: 0.5rem;
-  // height: calc(100vh - 7rem);;
+  box-shadow: 0.05rem 0.05rem 0.2rem $dark-orange;
+  padding: 1rem 0.5rem;
+  min-height: calc(100vh - 7rem);
+  // border: 0.25rem solid $dark-orange;
 }
 
-.row-t{
-  display: flex;
-}

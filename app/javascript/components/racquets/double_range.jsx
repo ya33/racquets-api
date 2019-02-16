@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 export default class DoubleRange extends React.Component {
 
   render(){
-    console.log(this.props)
     return (
       <div className='double-range'>
         <div className="double-input">

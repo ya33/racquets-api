@@ -129,7 +129,7 @@ export default class RacquetsApp extends React.Component {
     return (
       <React.Fragment>
         <div className="container-fluid">
-          <div className="row-t">
+          <div className="row">
             <div className="col-xs-4 col-md-2">
               <RacquetsFilters filters={this.state.filters} intervals={this.state.intervals} onChange={(k,v) => this.handleChange(k,v)} />
             </div>
@@ -155,7 +155,3 @@ export default class RacquetsApp extends React.Component {
 }
 
 RacquetsApp.propTypes = {};
-
-const keywordFilter = (keyword, database) => {
-
-}
