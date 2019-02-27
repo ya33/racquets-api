@@ -4,6 +4,7 @@ import WeightInput from "./tool/weight_input"
 import racquetImage from "./images/racquet-black.jpg";
 import SearchResult from "./tool/search_result"
 import MeasurementsResult from "./tool/measurements_result"
+import ListResults from "./tool/list_results"
 
 export default class ToolApp extends React.Component {
   constructor(props){
@@ -44,7 +45,6 @@ export default class ToolApp extends React.Component {
   }
 
   handleMeasurementsChange() {
-    console.log('change')
     const value = event.target.value;
     const name= event.target.name;
     this.setState({
@@ -79,7 +79,8 @@ export default class ToolApp extends React.Component {
             <div className="col-xs-12 col-md-3">
               <div className="racquet-choice">
                 <label>Choose your racquet model</label>
-                <input type='text'name='search' onChange={this.handleSearchChange}/>
+                <input type='text' name='search' onChange={this.handleSearchChange}/>
+                <ListResults racquets=[""] />
               </div>
               <SearchResult result={this.state.searchResult} />
               <MeasurementsResult result={this.state.measurementsResult} />

@@ -59,9 +59,14 @@ export default class RacquetsApp extends React.Component {
     const maxSwingweight = (key === 'swingweight' && val === 'max') ? event.target.value : this.state.filters.maxSwingweight;
 
     const results = [];
+    const words = keywords.toUpperCase().split(" ");
+
     this.state.allRacquets.forEach((racquet) => {
-      let racquetName = racquet.trade_name.toUpperCase()
-      const isInResults = ((racquetName.includes(keywords.toUpperCase()))
+      let racquetName = racquet.trade_name.toUpperCase();
+      const wordsAreInName = words.map((word) => {
+        return racquetName.includes(word)
+      }).reduce((a, c) => a && c);
+      const isInResults = (wordsAreInName
                             && (minWeight <= racquet.reference_weight) && (racquet.reference_weight <= maxWeight)
                             && (minBalance <= racquet.reference_balance) && (racquet.reference_balance <= maxBalance)
                             && (minSwingweight <= racquet.reference_swingweight) && (racquet.reference_swingweight <= maxSwingweight)
