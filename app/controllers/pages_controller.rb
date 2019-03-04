@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def tool
+    @racquets = Racquet.all
   end
 end

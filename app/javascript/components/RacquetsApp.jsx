@@ -59,9 +59,14 @@ export default class RacquetsApp extends React.Component {
     const maxSwingweight = (key === 'swingweight' && val === 'max') ? event.target.value : this.state.filters.maxSwingweight;
 
     const results = [];
+    const words = keywords.toUpperCase().split(" ");
+
     this.state.allRacquets.forEach((racquet) => {
-      let racquetName = racquet.trade_name.toUpperCase()
-      const isInResults = ((racquetName.includes(keywords.toUpperCase()))
+      let racquetName = racquet.trade_name.toUpperCase();
+      const wordsAreInName = words.map((word) => {
+        return racquetName.includes(word)
+      }).reduce((a, c) => a && c);
+      const isInResults = (wordsAreInName
                             && (minWeight <= racquet.reference_weight) && (racquet.reference_weight <= maxWeight)
                             && (minBalance <= racquet.reference_balance) && (racquet.reference_balance <= maxBalance)
                             && (minSwingweight <= racquet.reference_swingweight) && (racquet.reference_swingweight <= maxSwingweight)
@@ -129,11 +134,16 @@ export default class RacquetsApp extends React.Component {
     return (
       <React.Fragment>
         <div className="container-fluid">
-          <div className="row-t">
-
+          <div className="row">
+            <div className="col-xs-4 col-md-2">
               <RacquetsFilters filters={this.state.filters} intervals={this.state.intervals} onChange={(k,v) => this.handleChange(k,v)} />
+            </div>
+            <div className="col-xs-4 col-md-8">
               <RacquetsList racquets={this.state.racquets} onClick={(racquetId) => this.handleClick(racquetId)} />
+            </div>
+            <div className="col-xs-4 col-md-2">
               <RacquetDetails specs={this.state.details} />
+            </div>
           </div>
         </div>
       </React.Fragment>
@@ -144,13 +154,9 @@ export default class RacquetsApp extends React.Component {
     fetch("http://localhost:3000/api/v1/racquets")
       .then(response => response.json())
       .then((data) => {
-        this.setInitialState(data.racquets)
+        this.setInitialState(data.racquets.sort((a,b) => a - b))
       });
   }
 }
 
 RacquetsApp.propTypes = {};
-
-const keywordFilter = (keyword, database) => {
-
-}
