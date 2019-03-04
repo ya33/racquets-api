@@ -9,17 +9,34 @@
 
 .racquet-choice {
   margin-bottom: 1rem;
+  position: relative;
 
   input {
     border-radius: 0.25rem;
     padding: 0 0.5rem;
-    width: 13rem;
+    width: 20rem;
+  }
+
+  .list {
+    position: absolute;
+    z-index: 100;
+    min-width: 20rem;
+    max-height: 10rem;
+    background: lightgrey;
+    padding: 0;
+    overflow-y: auto;
+  }
+
+  li {
+    cursor: pointer;
+    list-style: none;
+    border: 0.01rem solid white;
   }
 
 }
 
 .result-choice {
-  visibility: hidden;
+  // visibility: hidden;
 }
 
 .measurements-results {

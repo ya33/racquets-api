@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import WeightInput from "./tool/weight_input"
 import racquetImage from "./images/racquet-black.jpg";
-import SearchResult from "./tool/search_result"
 import MeasurementsResult from "./tool/measurements_result"
-import ListResults from "./tool/list_results"
+import RacquetSelector from "./tool/racquet_selector"
 
 export default class ToolApp extends React.Component {
   constructor(props){
@@ -24,24 +23,15 @@ export default class ToolApp extends React.Component {
       searchResult: {
         weight: 300,
         balance: 33,
-        swingweight: 300,
+        swingweight: 0,
+        length: 68.6
       },
-      search: "",
-      racquets: [],
+      allRacquets: [],
+      racquets: []
     };
-    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleMeasurementsChange = this.handleMeasurementsChange.bind(this);
     this.handleCalculationSubmit = this.handleCalculationSubmit.bind(this);
-  }
-
-  handleSearchChange() {
-    const keyword = event.target.value;
-    const keywords = keyword.split(" ")
-    console.log('search')
-
-    this.setState({
-      search: keyword
-    });
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleMeasurementsChange() {
@@ -50,6 +40,7 @@ export default class ToolApp extends React.Component {
     this.setState({
         [name]: value
     });
+    console.log(this.state)
   }
 
   handleCalculationSubmit() {
@@ -70,6 +61,18 @@ export default class ToolApp extends React.Component {
     })
   }
 
+  handleChange(racquet) {
+    this.setState({
+      length: racquet.length,
+      balance: racquet.reference_balance,
+      searchResult: {
+        weight: racquet.reference_weight,
+        balance: racquet.reference_balance,
+        swingweight: racquet.reference_swingweight,
+        length: racquet.length
+      }
+    });
+  }
 
   render() {
     return(
@@ -77,19 +80,14 @@ export default class ToolApp extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-xs-12 col-md-3">
-              <div className="racquet-choice">
-                <label>Choose your racquet model</label>
-                <input type='text' name='search' onChange={this.handleSearchChange}/>
-                <ListResults racquets=[""] />
-              </div>
-              <SearchResult result={this.state.searchResult} />
+              <RacquetSelector racquets={this.state.allRacquets} onChange={this.handleChange}/>
               <MeasurementsResult result={this.state.measurementsResult} />
             </div>
             <div className="col-xs-12 col-md-9">
               <div className="measurements">
                 <img src={racquetImage} className='racquet-image' />
                 <label>Racquet length
-                  <input type='text' placeholder='length' defaultValue={this.state.length} onChange={this.handleCalculationChange} />
+                  <input type='text' placeholder='length' value={this.state.length} onChange={this.handleMeasurementsChange} />
                 </label>
                 <div className='weight-inputs'>
                   <WeightInput
@@ -111,8 +109,6 @@ export default class ToolApp extends React.Component {
                 </div>
                 <input type='submit' value='Calculate' className='btn btn-success' onClick={this.handleCalculationSubmit}/>
               </div>
-
-
             </div>
           </div>
         </div>
@@ -125,6 +121,7 @@ export default class ToolApp extends React.Component {
       .then(response => response.json())
       .then((data) => {
         this.setState({
+          allRacquets: data.racquets,
           racquets: data.racquets
         })
       });
